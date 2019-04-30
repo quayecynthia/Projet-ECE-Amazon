@@ -20,7 +20,7 @@
 	$database = "ECEAmazon";
 	//connectez-vous dans votre BDD
 	//Rappel : votre serveur = localhost | votre login = root | votre mot de pass = 'root'
-	$db_handle = mysqli_connect('localhost', 'root', 'root' );	//connect('serveur', 'login', 'passw'); Ca renvoie un entier 0 = pas de connexion
+	$db_handle = mysqli_connect('localhost', 'root', '' );	//connect('serveur', 'login', 'passw'); Ca renvoie un entier 0 = pas de connexion
 	$db_found = mysqli_select_db($db_handle, $database);
 
 	//erreurs

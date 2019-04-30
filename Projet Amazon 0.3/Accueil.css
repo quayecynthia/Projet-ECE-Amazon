@@ -1,0 +1,112 @@
+body {
+padding: 0px;
+margin: 0px;
+background: #f2f6e9;
+}
+
+.navbar {
+background:#6ab446;
+}
+
+.nav-link, .navbar-brand {
+color: #fff;
+cursor: pointer;
+}
+
+.nav-link {
+margin-right: 1em !important;
+}
+
+.nav-link:hover {
+color: #000;
+}
+
+.navbar-collapse {
+justify-content: flex-end;
+}
+
+#Catégorie {
+width: 810px;
+height: 800px;
+border: 5px;
+border-style: groove;
+margin: 0 auto;
+}
+
+#CateHeader{
+	height: 65px;
+	color:black;
+	text-align: center;
+	margin-top: 35px;
+}
+
+#Case1{
+	width: 350px;
+	float:left;
+	margin-left: 20px;
+}
+
+#Case2{
+	width: 350px;
+	float:left;
+	margin-left: 80px;
+}
+
+#Case3{
+	width: 350px;;
+	float:left;
+	margin-left: 20px;
+}
+
+#Case4{
+	width: 350px;
+	float:left;
+	margin-left: 80px;
+}
+
+#login .container #login-row #login-column #login-box {
+	margin-top: 20px;
+  	max-width: 600px;
+  	height: 320px;
+  	border: 1px solid #9C9C9C;
+  	background-color: #EAEAEA;
+}
+
+#signup .contain #signup-row #signup-column #signup-box {
+	margin-top: 20px;
+	margin-left: 80px;
+  	max-width: 600px;
+  	height: 600px;
+  	border: 1px solid #9C9C9C;
+  	background-color: #EAEAEA;
+}
+
+#signup .contain #signup-row #signup-column #signup-box #signup-form {
+ 	padding-left: 50px;
+ 	margin-top: 40px;
+}
+
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+
+#login .container #login-row #login-column #login-box #login-form label {
+	color:#6ab446;
+}
+
+#login .container #login-row #login-column #login-box #login-form h3 {
+	color:#6ab446;
+}
+
+#login .container #login-row #login-column #login-box #login-form #bouton {
+	color:#6ab446;
+}
+
+#login .container #login-row #login-column #login-box #login-form #bouton:hover {
+	color:blue;
+}
+
+
