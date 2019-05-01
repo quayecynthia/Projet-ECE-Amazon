@@ -74,7 +74,7 @@ else{
  	 	echo "Categorie : " . $data['Categorie'] . '<br>';
  		 echo "Id: " . $data['Id'] . '<br>';
  		 echo "Prix: " . $data['Prix'] . '<br>';
- 		 echo "Stock: " . $data['Stock'] . '<br>';
+  		 echo "Stock: " . $data['Stock'] . '<br>';
  		 echo "Email vendeur: " . $data['IdVendeur'] . '<br>';
 		 echo "<img src= ".$data['Photo']." alt='Image non trouvée' height='60' width ='60'/>". '<br>';
  	}

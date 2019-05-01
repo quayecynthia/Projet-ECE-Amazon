@@ -50,13 +50,13 @@ if($_SESSION['verif']==0){
  $email = isset($_POST["email"])?$_POST["email"] : "";
  $pseudo = isset($_POST["pseudo"])?$_POST["pseudo"] : "";
  $mdp =  isset($_POST["mdp"])?$_POST["mdp"] : "";
-
 }
 else{
 $email = $_SESSION['email'];
 $pseudo = $_SESSION['pseudo'];
 $mdp = $_SESSION['mdp'];
 }
+$_SESSION['verif']=2;
  //paire (utilisateur => mot de passe) stockés dans le serveur
  //on utilise 3 paires juste pour montrer un exemple
 $database = "ECEAmazon";
@@ -86,8 +86,16 @@ if ($db_found) {
 
 $sql = "SELECT * FROM vendeur WHERE vendeur.Email LIKE '$email' AND vendeur.Mdp LIKE '$mdp' AND vendeur.Pseudo LIKE '$pseudo'";
 $sql2 = "SELECT * FROM item WHERE item.IdVendeur LIKE '$email'";
-$sql3 ="DELETE from item WHERE item.Id LIKE 'ok'";
 $result = mysqli_query($db_handle, $sql);
+
+$Id = $_GET['Id'];
+$suppitem = is_numeric($Id) ? $Id : false;
+if($suppitem){
+$sql3 = "DELETE FROM item WHERE item.Id LIKE '$Id'";
+$result3 = mysqli_query($db_handle, $sql3);
+}
+
+
 
 if (mysqli_num_rows($result) != 0) {
 	echo "<h3>Les informations entrées sont correctes.</h3>";
@@ -107,10 +115,9 @@ else{
 	echo "Email vendeur: " . $data['IdVendeur'] . '<br>';
  	echo "Description: " . $data['Description'] . '<br>';
 	echo "<img src= ".$data['Photo']." alt='Image non trouvée' height='60' width ='60'/>". '<br>';
-	echo "<img src= 'suppression.png' name='poubelle' alt='Image supp' height='60' width ='60'/>". '<br>';
+	echo "<div id ='liste'> <strong><font color = 'dodgerblue'><a href = 'vendeur.php?Id=".$data['Id']."'>
+		 <img src = 'suppression.png'height='50' width ='50'/> </a> </div><br>";
 	}
-	
-}
 }
 else{//Informations saisies incorrectes
  	echo "<h3>Les informations ne sont pas correctes.</h3>";

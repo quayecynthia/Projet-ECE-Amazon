@@ -57,11 +57,11 @@ $('.header').height($(window).height());
 			<tr>
 			<tr>
 				<td>Prix</td>
-				<td><input type="text" name="prix"/></td>
+				<td><input type="number" name="prix"/></td>
 			</tr>
 			<tr>
 				<td>Stock</td>
-				<td><input type="text" name="stock"/></td>
+				<td><input type="number" name="stock"/></td>
 			</tr>
 			<tr>
 				<td>Catégorie:</td>
