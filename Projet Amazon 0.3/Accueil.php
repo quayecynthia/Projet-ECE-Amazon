@@ -1,6 +1,7 @@
 <?php
 session_start();
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,49 +38,37 @@ $('.header').height($(window).height());
 </div>
 
 </nav>
-	<h1> Ajouter un item sur ECE Amazon </h1>
-	<form action="newitem.php" method="post">
-		<table>
-			<tr>
-			<tr>
-				<td>Nom:</td>
-				<td><input type="text" name="nom"/></td>
-			</tr>
-			<tr>
-				<td>Description:</td>
-				<td><textarea type="text" name="description" rows=4 cols=25>Décrire le nouvel item.</textarea></td>
-			</tr>
-			<tr>
-			<tr>
-				<td>Photo:</td>
-    			<td><input type="file" id="fond" name="photo" accept="image/png, image/jpeg"></td>
-			</tr>
-			<tr>
-			<tr>
-				<td>Prix</td>
-				<td><input type="text" name="prix"/></td>
-			</tr>
-			<tr>
-				<td>Stock</td>
-				<td><input type="text" name="stock"/></td>
-			</tr>
-			<tr>
-				<td>Catégorie:</td>
-				<label for="categorie"></label>
-				<td><select name="categorie" id="categorie">
-				<option value="Intro"> Sélectionner votre catégorie</option>
-				<option value="Livres"> Livres</option>
-				<option value="Musique"> Musique</option>
-				<option value="Vetements"> Vêtements</option>
-				<option value="Sport et Loisir"> Sport et Loisir</option>
-				</select></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center">
-				<input type="submit" value="Ajouter un item"  />
-				</td>
-			</tr>
-		</table>
-	</form>
+
+<div id="Catégorie">
+
+	<div id="CateHeader">
+		<h1>Nos Catégories</h1>
+	</div>
+
+	<div class="thumbnail" id="Case1">
+		<a href="vetement.png" target="_blank">
+		<img src="vetement.png" style="width: 100%;">
+		</a>
+	</div>
+
+	<div class="thumbnail" id="Case2">
+		<a href="musique.png" target="_blank">
+		<img src="musique.png" style="width: 100%;">
+		</a>
+	</div>
+
+	<div class="thumbnail" id="Case3">
+		<a href="books.png" target="_blank">
+		<img src="books.png" style="width: 100%;">
+		</a>
+	</div>
+
+	<div class="thumbnail" id="Case4">
+		<a href="Sport.png" target="_blank">
+		<img src="Sport.png" style="width: 100%;">
+		</a>
+	</div>
+
+</div>	
 </body>
 </html>

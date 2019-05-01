@@ -16,8 +16,6 @@
 <?php
 session_start();
 $_SESSION['verif']=2;
-echo $_SESSION['verif'];
-echo $_SESSION['email'];
 $email = $_SESSION['email'];
  $nom = isset($_POST["nom"])?$_POST["nom"] : "";
  $description = isset($_POST["description"])?$_POST["description"] : "";
@@ -60,14 +58,7 @@ if($stock==""){
 
 if ($db_found) {
 
- $sql = "SELECT * FROM item";
- $sql3 = "SELECT * FROM item WHERE item.Id Like '$id'";
- $result3 = mysqli_query($db_handle, $sql3);
-
-if (mysqli_num_rows($result3) != 0) {
-	echo "<h3>Identifiant déjà utilisé.</h3>";
-	$error = 1;
-}
+ $sql = "SELECT * FROM item WHERE item.IdVendeur LIKE '$email'";
 
 if($error){
 
@@ -75,13 +66,12 @@ if($error){
 else{
  	$sql2 = "INSERT INTO item(Id, Nom, Photo, Description, Prix, Stock, Categorie, IdVendeur)
  			 VALUES(NULL, '$nom', '$photo', '$description', '$prix', '$stock', '$categorie', '$email')";
- 	$result2 = mysqli_query($db_handle, $sql2);
-
-  	$result = mysqli_query($db_handle, $sql);
- 	while ($data = mysqli_fetch_assoc($result)) {
  	
+ 	$result2 = mysqli_query($db_handle, $sql2);
+  	$result = mysqli_query($db_handle, $sql);
  	echo "<h3>Voici vos ventes</h3>";
- 		 echo "Categorie : " . $data['Categorie'] . '<br>';
+ 	while ($data = mysqli_fetch_assoc($result)) {
+ 	 	echo "Categorie : " . $data['Categorie'] . '<br>';
  		 echo "Id: " . $data['Id'] . '<br>';
  		 echo "Prix: " . $data['Prix'] . '<br>';
  		 echo "Stock: " . $data['Stock'] . '<br>';
