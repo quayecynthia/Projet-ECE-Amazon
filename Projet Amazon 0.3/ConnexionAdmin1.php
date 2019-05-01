@@ -37,51 +37,20 @@ $('.header').height($(window).height());
 </div>
 
 </nav>
-	<h1> Ajouter un item sur ECE Amazon </h1>
-	<form action="newitem.php" method="post">
+	<title>Connexion Admin</title>
+	<form action="ConnexionAdmin.php" method="post">
 		<table>
 			<tr>
-			<tr>
-				<td>Nom:</td>
-				<td><input type="text" name="nom"/></td>
+				<td>Email:</td>
+				<td><input type="email" name="email"/></td>
 			</tr>
 			<tr>
-				<td>Description:</td>
-				<td><textarea type="text" name="description" rows=4 cols=25>Aucune description.</textarea></td>
-			</tr>
-			<tr>
-			<tr>
-				<td>Photo:</td>
-    			<td><input type="file" id="fond" name="photo" accept="image/png, image/jpeg"></td>
-			</tr>
-			<tr>
-			<tr>
-				<td>Prix</td>
-				<td><input type="number" name="prix"/></td>
-			</tr>
-			<tr>
-				<td>Stock</td>
-				<td><input type="number" name="stock"/></td>
-			</tr>
-			<tr>
-				<td>Catégorie:</td>
-				<label for="categorie"></label>
-				<td><select name="categorie" id="categorie">
-				<option value="Intro"> Sélectionner votre catégorie</option>
-				<option value="Livres"> Livres</option>
-				<option value="Musique"> Musique</option>
-				<option value="Vetements"> Vêtements</option>
-				<option value="Sport et Loisir"> Sport et Loisir</option>
-				</select></td>
+				<td>Mot de passe:</td>
+				<td><input type="password" name="mdp"/></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-				<input type="submit" value="Ajouter un item"  />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="button" value="page précédente" onclick="javascript:history.back()">
+				<input type="submit" value="Connection" />
 				</td>
 			</tr>
 		</table>

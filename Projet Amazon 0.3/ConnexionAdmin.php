@@ -33,30 +33,12 @@ $('.header').height($(window).height());
 </div>
 
 </nav>
-	<title>Voici vos ventes</title>
-	<form action="newitem1.php" method="post">
-	<table>
-			<tr>
-				<td colspan="2" align="center">
-				<input type="submit" value ="Nouvelle vente ?" />
-				</td>
-			</tr>
-	</table>
-	</form>
 <?php
-
 session_start();
-if($_SESSION['verif']==0){
- $email = isset($_POST["email"])?$_POST["email"] : "";
- $pseudo = isset($_POST["pseudo"])?$_POST["pseudo"] : "";
- $mdp =  isset($_POST["mdp"])?$_POST["mdp"] : "";
-}
-else{
-$email = $_SESSION['email'];
-$pseudo = $_SESSION['pseudo'];
-$mdp = $_SESSION['mdp'];
-}
-$_SESSION['verif']=2;
+$email = isset($_POST["email"])?$_POST["email"] : "";
+$mdp =  isset($_POST["mdp"])?$_POST["mdp"] : "";
+echo $email;
+
  //paire (utilisateur => mot de passe) stockés dans le serveur
  //on utilise 3 paires juste pour montrer un exemple
 $database = "ECEAmazon";
@@ -77,60 +59,35 @@ if($mdp==""){
 	echo "Le mot de passe n'est pas rempli"."<br>";
 }
 
-if($pseudo==""){
-	$error = 1;
-	echo "Le pseudo n'est pas rempli"."<br>";
-}
 
 if ($db_found) {
 
-$sql = "SELECT * FROM vendeur WHERE vendeur.Email LIKE '$email' AND vendeur.Mdp LIKE '$mdp' AND vendeur.Pseudo LIKE '$pseudo'";
-$sql2 = "SELECT * FROM item WHERE item.IdVendeur LIKE '$email'";
-$result = mysqli_query($db_handle, $sql);
+	$sql = "SELECT * FROM vendeur WHERE vendeur.Email LIKE '$email' AND vendeur.Mdp LIKE '$mdp' AND vendeur.Admin = TRUE";
+	$result = mysqli_query($db_handle, $sql);
 
-$Id = $_GET['Id'];
-$suppitem = is_numeric($Id) ? $Id : false;
-if($suppitem){
-$sql3 = "DELETE FROM item WHERE item.Id LIKE '$Id'";
-$result3 = mysqli_query($db_handle, $sql3);
-}
+	if (mysqli_num_rows($result) == 0) {
+		echo "<h3>Les informations entrées ne sont pas correctes.</h3>";
+		$error = 1;
+	}	
+	else{//Informations saisies incorrectes
+		session_destroy();
+		session_start();
 
-if (mysqli_num_rows($result) != 0) {
-	echo "<h3>Les informations entrées sont correctes.</h3>";
-
-if($error){
-
-}
-else{
-	//Afficher toutes les ventes
-  	$result2 = mysqli_query($db_handle, $sql2);
- 	echo "<h3>Voici mes ventes</h3>";
- 	while ($data = mysqli_fetch_assoc($result2)) {
- 	echo "Categorie : " . $data['Categorie'] . '<br>';
-	echo "Id: " . $data['Id'] . '<br>';
- 	echo "Prix: " . $data['Prix'] . '<br>';
-	echo "Stock: " . $data['Stock'] . '<br>';
-	echo "Email vendeur: " . $data['IdVendeur'] . '<br>';
- 	echo "Description: " . $data['Description'] . '<br>';
-	echo "<img src= ".$data['Photo']." alt='Image non trouvée' height='60' width ='60'/>". '<br>';
-	echo "<div id ='liste'><a href = 'vendeur.php?Id=".$data['Id']." '>
-		 <img src = 'suppression.png'height='50' width ='50'/> </a> </div><br>";
-	}
-	
-}
-}
-else{//Informations saisies incorrectes
- 	echo "<h3>Les informations ne sont pas correctes.</h3>";
+ 		echo "<h3>Les informations sont correctes.</h3>";
+		while ($data = mysqli_fetch_assoc($result)) {
+ 			echo "Admin: " . $data['Admin'] . '<br>';
+ 			echo "Email: " . $data['Email'] . '<br>';
+ 			echo "Mdp: " . $data['Mdp'] . '<br>';
+		}
+		mysqli_close($db_handle);
+		header('Location: ChoixAdmin.php');
+		exit();
 }
 }
 //si le BDD n'existe pas
 else {
  echo "Database not found";
 }
-$_SESSION['email'] = $email ;
-$_SESSION['pseudo'] = $pseudo;
-$_SESSION['mdp'] = $mdp;
-
 mysqli_close($db_handle);
 ?>
 </body>
