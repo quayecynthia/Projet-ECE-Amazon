@@ -126,7 +126,7 @@ else {
 }
 mysqli_close($db_handle);
 
-header('Location: vendeur.php');
+header('Location: Vendeur.php');
 exit();
 ?>
 </body>

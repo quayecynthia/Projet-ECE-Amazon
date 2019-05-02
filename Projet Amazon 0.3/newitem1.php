@@ -1,6 +1,8 @@
 <?php
 session_start();
+echo
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +40,7 @@ $('.header').height($(window).height());
 
 </nav>
 	<h1> Ajouter un item sur ECE Amazon </h1>
-	<form action="newitem.php" method="post">
+	<form action="NewItem.php" method="post">
 		<table>
 			<tr>
 			<tr>

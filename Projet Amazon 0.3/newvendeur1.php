@@ -20,6 +20,7 @@ $('.header').height($(window).height());
 
 </head>
 <body>
+<<<<<<< HEAD
 <nav class="navbar navbar-expand-md">
 
 <a class="navbar-brand" href="Accueil.php">ECE Amazon</a>
@@ -39,6 +40,10 @@ $('.header').height($(window).height());
 </nav>
 	<title>Création nouveau Vendeur</title>
 	<form action="newvendeur.php" method="post">
+=======
+	<h1> Créer un compte vendeur sur ECE Amazon </h1>
+	<form action="NewVendeur.php" method="post">
+>>>>>>> Connexion/Deconnexion
 		<table>
 			<tr>
 				<td>Email:</td>

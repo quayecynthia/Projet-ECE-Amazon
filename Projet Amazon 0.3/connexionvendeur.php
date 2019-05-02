@@ -1,7 +1,9 @@
 <?php
 session_start();
 $_SESSION['verif']=0;
+echo $_SESSION['verif'];
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +23,7 @@ $('.header').height($(window).height());
 
 </head>
 <body>
+<<<<<<< HEAD
 <nav class="navbar navbar-expand-md">
 
 <a class="navbar-brand" href="Accueil.php">ECE Amazon</a>
@@ -40,6 +43,9 @@ $('.header').height($(window).height());
 </nav>
 	<title>Compte Vendeur</title>
 	<form action="vendeur.php" method="post">
+=======
+	<form action="Vendeur.php" method="post">
+>>>>>>> Connexion/Deconnexion
 		<table>
 			<tr>
 				<td>Email:</td>
@@ -60,7 +66,7 @@ $('.header').height($(window).height());
 				</td>
 			</tr>
 			<tr>
-				<td><a href="newvendeur1.php">Pas de compte ?</a></td>
+				<td><a href="NewVendeur1.php">Pas de compte ?</a></td>
 			</tr>
 		</table>
 	</form>

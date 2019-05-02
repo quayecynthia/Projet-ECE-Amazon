@@ -16,7 +16,13 @@
 <?php
 session_start();
 $_SESSION['verif']=2;
+<<<<<<< HEAD
 $email = $_SESSION['email'];
+=======
+echo $_SESSION['verif'];
+echo $_SESSION['email'];
+ $email = $_SESSION['email'];
+>>>>>>> Connexion/Deconnexion
  $nom = isset($_POST["nom"])?$_POST["nom"] : "";
  $description = isset($_POST["description"])?$_POST["description"] : "";
  $photo = isset($_POST["photo"])?$_POST["photo"] : "";
@@ -85,7 +91,7 @@ else {
  echo "Database not found";
 }
 mysqli_close($db_handle);
-header('Location: vendeur.php');
+header('Location: Vendeur.php');
 exit();
 ?>
 </body>

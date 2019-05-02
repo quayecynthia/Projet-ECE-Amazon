@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +21,7 @@ $('.header').height($(window).height());
 
 </head>
 <body>
+<<<<<<< HEAD
 <nav class="navbar navbar-expand-md">
 <a class="navbar-brand" href="Accueil.php">ECE Amazon</a>
 <button class="navbar-toggler navbar-dark" type="button" datatoggle="collapse" data-target="#main-navigation">
@@ -35,6 +40,9 @@ $('.header').height($(window).height());
 </nav>
 	<title>Voici vos ventes</title>
 	<form action="newitem1.php" method="post">
+=======
+	<form action="NewItem1.php" method="post">
+>>>>>>> Connexion/Deconnexion
 	<table>
 			<tr>
 				<td colspan="2" align="center">
@@ -44,8 +52,7 @@ $('.header').height($(window).height());
 	</table>
 	</form>
 <?php
-
-session_start();
+echo "verif :". $_SESSION['verif'];
 if($_SESSION['verif']==0){
  $email = isset($_POST["email"])?$_POST["email"] : "";
  $pseudo = isset($_POST["pseudo"])?$_POST["pseudo"] : "";
@@ -122,6 +129,10 @@ else{
 else{//Informations saisies incorrectes
  	echo "<h3>Les informations ne sont pas correctes.</h3>";
 }
+
+$_SESSION['email']= $email ; 
+$_SESSION['pseudo'] = $pseudo;
+$_SESSION['mdp'] = $mdp ;
 }
 //si le BDD n'existe pas
 else {
