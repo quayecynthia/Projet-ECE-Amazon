@@ -16,6 +16,16 @@ session_start();
 $(document).ready(function(){
 $('.header').height($(window).height());
 });
+
+	function afficherVar1() {
+		if(document.variation1.categorie.selectedIndex == 3){
+			<?php echo "oui"?>
+			document.getElementById('afficher1').style.visibility = 'visible';
+		}
+		else{<?php echo "non"?>
+			document.getElementById('afficher1').style.visibility = 'hidden';
+		}
+}
 </script>
 
 </head>
@@ -38,7 +48,8 @@ $('.header').height($(window).height());
 
 </nav>
 	<h1> Ajouter un item sur ECE Amazon </h1>
-	<form action="newitem.php" method="post">
+				<form name = "variation1" action = "" method ="post">
+
 		<table>
 			<tr>
 			<tr>
@@ -64,27 +75,36 @@ $('.header').height($(window).height());
 				<td><input type="number" name="stock"/></td>
 			</tr>
 			<tr>
-				<td>Catégorie:</td>
-				<label for="categorie"></label>
-				<td><select name="categorie" id="categorie">
+				<td>Catégorie: </td>
+				<td><select name="categorie" OnChange="afficherVar1();">
 				<option value="Intro"> Sélectionner votre catégorie</option>
 				<option value="Livres"> Livres</option>
 				<option value="Musique"> Musique</option>
 				<option value="Vetements"> Vêtements</option>
 				<option value="Sport et Loisir"> Sport et Loisir</option>
 				</select></td>
+				</form>
+			</tr>
+			<tr>
+				<span id = "afficher1" style = "visibility:hidden">
+				<form action = "" method = "post">
+				<td>Couleur: </td>
+				<td>
+					<select name="couleur">
+						<option value="Intro"> Sélectionner la couleur</option>
+						<option value="Rouge"> Rouge</option>
+						<option value="Bleu"> Bleu</option>
+						<option value="Vert"> Vert</option>
+					</select>
+				</td>
+				</form>
+				</span>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
 				<input type="submit" value="Ajouter un item"  />
 				</td>
 			</tr>
-			<tr>
-				<td>
-					<input type="button" value="page précédente" onclick="javascript:history.back()">
-				</td>
-			</tr>
 		</table>
-	</form>
 </body>
 </html>
