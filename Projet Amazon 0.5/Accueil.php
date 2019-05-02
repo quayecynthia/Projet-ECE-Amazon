@@ -2,9 +2,11 @@
 session_start();
 $_SESSION['error_message'] = "";
 if(!isset($_SESSION['connected'])) $_SESSION['connected'] = '0';
-if(!isset($_SESSION['nom'])) $_SESSION['nom'] = "";
-if(!isset($_SESSION['prenom'])) $_SESSION['prenom'] = "";
-if(!isset($_SESSION['email'])) $_SESSION['email'] = "";
+if(!isset($_SESSION['nom_connected'])) $_SESSION['nom_connected'] = "";
+if(!isset($_SESSION['prenom_connected'])) $_SESSION['prenom_connected'] = "";
+if(!isset($_SESSION['email_connected'])) $_SESSION['email_connected'] = "";
+if(!isset($_SESSION['image_connected'])) $_SESSION['image_connected'] = "";
+if(!isset($_SESSION['admin'])) $_SESSION['admin'] = '0';
 ?>
 
 <!DOCTYPE html>
@@ -30,16 +32,15 @@ $('.header').height($(window).height());
 
 <?php
 if($_SESSION['connected']==2){
-	$deconnexion = 1;
+	$connexion = 1;
 }
 else{
-	$deconnexion = 0;
+	$connexion = 0;
 }
 ?>
 
-<?php
-echo '<a class="navbar-brand" href="Accueil.php">ECE Amazon</a>';
-?>
+
+<a class="navbar-brand" href="Accueil.php">ECE Amazon</a>
 
 <button class="navbar-toggler navbar-dark" type="button" datatoggle="collapse" data-target="#main-navigation">
 <span class="navbar-toggler-icon"></span>
@@ -49,15 +50,16 @@ echo '<a class="navbar-brand" href="Accueil.php">ECE Amazon</a>';
 <ul class="navbar-nav">
 <?php
 
-if($deconnexion) echo '<li class="nav-item"><a class="nav-link" href="#">Bienvenue, '.$_SESSION['prenom'].' '.$_SESSION['nom'].'</li>';
+if($connexion && $_SESSION['image_connected']=="") echo '<li class="nav-item"><a class="nav-link" href="#">Bienvenue, '.$_SESSION['prenom_connected'].' '.$_SESSION['nom_connected'].'</li>';
+else if($connexion && $_SESSION['image_connected']!="") echo '<li class="nav-item"><a class="nav-link" href="#">Bienvenue, '.$_SESSION['prenom_connected'].' '.$_SESSION['nom_connected'].' <img src='. $_SESSION['image_connected']. ' alt="Image non trouvée" height="30" width ="30"/></a></li>';
 
 ?>
 <li class="nav-item"><a class="nav-link" href="ConnexionAdmin1.php">Admin</a></li>
 <li class="nav-item"><a class="nav-link" href="ConnexionVendeur.php">Vendre</a></li>
 <li class="nav-item"><a class="nav-link" href="#"><img src= "Panier.png" alt='Image non trouvée' height='30' width ='60'/></a></li>
 <?php
-if(!$deconnexion)echo '<li class="nav-item"><a class="nav-link" href="VotreCompte.php">Votre Compte</a></li>';
-else if($deconnexion) echo '<li class="nav-item"><a class="nav-link" href="Deconnexion.php">Deconnexion</a></li>';
+if(!$connexion)echo '<li class="nav-item"><a class="nav-link" href="VotreCompte.php">Votre Compte</a></li>';
+else if($connexion) echo '<li class="nav-item"><a class="nav-link" href="Deconnexion.php">Deconnexion</a></li>';
 ?>
 </ul>
 </div>

@@ -21,6 +21,14 @@ $('.header').height($(window).height());
 </script>
 
 </head>
+
+<?php
+if($_SESSION['image_connected']!=""){
+    $_SESSION['verif'] = 2;
+    header('Location: vendeur.php');
+    exit();
+}
+?>
 <body>
 	<nav class="navbar navbar-expand-md">
 

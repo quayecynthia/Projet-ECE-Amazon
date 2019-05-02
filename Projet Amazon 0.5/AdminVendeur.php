@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,17 +22,38 @@ $('.header').height($(window).height());
 </head>
 <body>
 <nav class="navbar navbar-expand-md">
+
+<?php
+if($_SESSION['connected']==2){
+	$connexion = 1;
+}
+else{
+	$connexion = 0;
+}
+?>
+
+
 <a class="navbar-brand" href="Accueil.php">ECE Amazon</a>
+
 <button class="navbar-toggler navbar-dark" type="button" datatoggle="collapse" data-target="#main-navigation">
-	<span class="navbar-toggler-icon"></span>
+<span class="navbar-toggler-icon"></span>
 </button>
 
 <div class="collapse navbar-collapse" id="main-navigation">
 <ul class="navbar-nav">
-<li class="nav-item"><a class="nav-link" href="ChoixAdmin.php">Admin</a></li>
-<li class="nav-item"><a class="nav-link" href="connexionvendeur.php">Vendre</a></li>
-<li class="nav-item"><a class="nav-link" href="VotreCompte.php">Votre Compte</a></li>
-<li class="nav-item"><a class="nav-link" href="#">Panier</a></li>
+<?php
+
+if($connexion && $_SESSION['image_connected']=="") echo '<li class="nav-item"><a class="nav-link" href="#">Bienvenue, '.$_SESSION['prenom_connected'].' '.$_SESSION['nom_connected'].'</li>';
+else if($connexion && $_SESSION['image_connected']!="") echo '<li class="nav-item"><a class="nav-link" href="#">Bienvenue, '.$_SESSION['prenom_connected'].' '.$_SESSION['nom_connected'].' <img src='. $_SESSION['image_connected']. ' alt="Image non trouvée" height="30" width ="30"/></a></li>';
+
+?>
+<li class="nav-item"><a class="nav-link" href="ConnexionAdmin1.php">Admin</a></li>
+<li class="nav-item"><a class="nav-link" href="ConnexionVendeur.php">Vendre</a></li>
+<li class="nav-item"><a class="nav-link" href="#"><img src= "Panier.png" alt='Image non trouvée' height='30' width ='60'/></a></li>
+<?php
+if(!$connexion)echo '<li class="nav-item"><a class="nav-link" href="VotreCompte.php">Votre Compte</a></li>';
+else if($connexion) echo '<li class="nav-item"><a class="nav-link" href="Deconnexion.php">Deconnexion</a></li>';
+?>
 </ul>
 </div>
 
@@ -49,8 +74,6 @@ $('.header').height($(window).height());
 	</form>
 <?php
 
-session_start();
-
  //paire (utilisateur => mot de passe) stockés dans le serveur
  //on utilise 3 paires juste pour montrer un exemple
 $database = "ECEAmazon";
@@ -67,6 +90,7 @@ if ($db_found) {
 $sql = "SELECT * FROM vendeur WHERE vendeur.Admin = FALSE";
 $result = mysqli_query($db_handle, $sql);
 
+error_reporting(0);
 $suppvend = $_GET['Email'];
 if($suppvend){
 $sql2 = "DELETE FROM vendeur WHERE vendeur.Email LIKE '$suppvend'";

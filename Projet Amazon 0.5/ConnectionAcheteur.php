@@ -59,9 +59,9 @@ else{
 			echo "Nom_carte: " . $data['Nom_carte'] . '<br>';
 			echo "Crypto: " . $data['Crypto'] . '<br><br>';
 
-			$_SESSION['nom'] = $data['Nom'];
-			$_SESSION['prenom'] = $data['Prenom'];
-			$_SESSION['email'] = $data['email'];
+			$_SESSION['nom_connected'] = $data['Nom'];
+			$_SESSION['prenom_connected'] = $data['Prenom'];
+			$_SESSION['email_connected'] = $data['email'];
 			}
 
 		$_SESSION['connected'] = 2;
