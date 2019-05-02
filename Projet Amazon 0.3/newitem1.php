@@ -1,6 +1,8 @@
 <?php
 session_start();
+echo
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +11,7 @@ session_start();
 </head>
 <body>
 	<h1> Ajouter un item sur ECE Amazon </h1>
-	<form action="newitem.php" method="post">
+	<form action="NewItem.php" method="post">
 		<table>
 			<tr>
 			<tr>

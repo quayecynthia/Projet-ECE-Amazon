@@ -1,5 +1,10 @@
 <?php
 session_start();
+$_SESSION['error_message'] = "";
+if(!isset($_SESSION['connected'])) $_SESSION['connected'] = '0';
+if(!isset($_SESSION['nom'])) $_SESSION['nom'] = "";
+if(!isset($_SESSION['prenom'])) $_SESSION['prenom'] = "";
+if(!isset($_SESSION['email'])) $_SESSION['email'] = "";
 ?>
 
 <!DOCTYPE html>
@@ -23,17 +28,37 @@ $('.header').height($(window).height());
 <body>
 <nav class="navbar navbar-expand-md">
 
-<a class="navbar-brand" href="Accueil.php">ECE Amazon</a>
+<?php
+if($_SESSION['connected']==2){
+	$deconnexion = 1;
+}
+else{
+	$deconnexion = 0;
+}
+?>
+
+<?php
+echo '<a class="navbar-brand" href="Accueil.php">ECE Amazon</a>';
+?>
+
 <button class="navbar-toggler navbar-dark" type="button" datatoggle="collapse" data-target="#main-navigation">
 <span class="navbar-toggler-icon"></span>
 </button>
 
 <div class="collapse navbar-collapse" id="main-navigation">
 <ul class="navbar-nav">
-<li class="nav-item"><a class="nav-link" href="#">Admin</a></li>
-<li class="nav-item"><a class="nav-link" href="connexionvendeur.php">Vendre</a></li>
-<li class="nav-item"><a class="nav-link" href="VotreCompte.php">Votre Compte</a></li>
-<li class="nav-item"><a class="nav-link" href="#">Panier</a></li>
+<?php
+
+if($deconnexion) echo '<li class="nav-item"><a class="nav-link" href="#">Bienvenue, '.$_SESSION['prenom'].' '.$_SESSION['nom'].'</li>';
+
+?>
+<li class="nav-item"><a class="nav-link" href="ConnexionAdmin1.php">Admin</a></li>
+<li class="nav-item"><a class="nav-link" href="ConnexionVendeur.php">Vendre</a></li>
+<li class="nav-item"><a class="nav-link" href="#"><img src= "Panier.png" alt='Image non trouvée' height='30' width ='60'/></a></li>
+<?php
+if(!$deconnexion)echo '<li class="nav-item"><a class="nav-link" href="VotreCompte.php">Votre Compte</a></li>';
+else if($deconnexion) echo '<li class="nav-item"><a class="nav-link" href="Deconnexion.php">Deconnexion</a></li>';
+?>
 </ul>
 </div>
 

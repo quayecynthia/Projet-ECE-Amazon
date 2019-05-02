@@ -4,6 +4,11 @@ margin: 0px;
 background: #f2f6e9;
 }
 
+button{
+	border: 0px;
+	background-color: transparent;
+}
+
 .navbar {
 background:#6ab446;
 }
@@ -89,6 +94,8 @@ margin: 0 auto;
 #login .container #login-row #login-column #login-box #login-form {
   padding: 20px;
 }
+
+
 #login .container #login-row #login-column #login-box #login-form #register-link {
   margin-top: -85px;
 }

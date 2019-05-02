@@ -1,5 +1,7 @@
 <?php
 
+	session_start();
+	
 	$nom= isset($_POST["Nom"])?$_POST["Nom"] : ""; //if then else
 	$prenom= isset($_POST["Prenom"])?$_POST["Prenom"] : ""; 
 	$email= isset($_POST["Email"])?$_POST["Email"] : "";
@@ -127,7 +129,15 @@
 			echo "Expiration_carte: " . $data['Expiration_carte'] . '<br>';
 			echo "Nom_carte: " . $data['Nom_carte'] . '<br>';
 			echo "Crypto: " . $data['Crypto'] . '<br><br>';
-	 	}
+
+	 		$_SESSION['nom'] = $data['Nom'];
+			$_SESSION['prenom'] = $data['Prenom'];
+			$_SESSION['email'] = $data['Email'];
+			}
+
+		$_SESSION['connected'] = 2;
+		header('Location: Accueil.php');
+		exit();
 	}
 
 	}

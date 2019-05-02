@@ -1,7 +1,9 @@
 <?php
 session_start();
 $_SESSION['verif']=0;
+echo $_SESSION['verif'];
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +11,7 @@ $_SESSION['verif']=0;
 	<title>Compte Vendeur</title>
 </head>
 <body>
-	<form action="vendeur.php" method="post">
+	<form action="Vendeur.php" method="post">
 		<table>
 			<tr>
 				<td>Email:</td>
@@ -30,7 +32,7 @@ $_SESSION['verif']=0;
 				</td>
 			</tr>
 			<tr>
-				<td><a href="newvendeur1.php">Pas de compte ?</a></td>
+				<td><a href="NewVendeur1.php">Pas de compte ?</a></td>
 			</tr>
 		</table>
 	</form>

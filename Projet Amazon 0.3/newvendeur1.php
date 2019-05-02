@@ -9,7 +9,7 @@ session_start();
 </head>
 <body>
 	<h1> Créer un compte vendeur sur ECE Amazon </h1>
-	<form action="newvendeur.php" method="post">
+	<form action="NewVendeur.php" method="post">
 		<table>
 			<tr>
 				<td>Email:</td>
