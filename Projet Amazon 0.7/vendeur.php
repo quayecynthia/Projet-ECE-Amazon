@@ -58,16 +58,6 @@ else if($connexion) echo '<li class="nav-item"><a class="nav-link" href="Deconne
 </div>
 
 </nav>
-	<title>Voici vos ventes</title>
-	<form action="newitem1.php" method="post">
-	<table>
-			<tr>
-				<td colspan="2" align="center">
-				<input type="submit" value ="Nouvelle vente ?" />
-				</td>
-			</tr>
-	</table>
-	</form>
 <?php
 
 if($_SESSION['verif']==0){
@@ -123,12 +113,12 @@ error_reporting(0);
 
 
 if (mysqli_num_rows($result) != 0) {
-	echo "<h3>Les informations entrées sont correctes.</h3>";
 	while ($data = mysqli_fetch_assoc($result)) {
 		$_SESSION['email_connected'] = $data['Email'];
 		$_SESSION['nom_connected'] = $data['Nom'];
 		$_SESSION['prenom_connected'] = $data['Prenom'];
 		$_SESSION['image_connected'] = $data['Photo'];
+		$fond = $data['Fond'];
 		$_SESSION['connected'] = 2;
 	}
 	
@@ -139,17 +129,31 @@ if($error){
 else{
 	//Afficher toutes les ventes
   	$result2 = mysqli_query($db_handle, $sql2);
- 	echo "<h3>Voici mes ventes</h3>";
+	echo "<h3><img src= ".$_SESSION['image_connected']." alt='Image vendeur' height='100' width ='100'/>".$pseudo.",voici vos ventes</h3>";
+
+	echo "<form action='newitem1.php' method='post'>
+	<table>
+			<tr>
+				<td colspan='2' align='center'>
+				<input type='submit' value ='Nouvelle vente ?' /><br><br>
+				</td>
+			</tr>
+	</table>
+	</form>";
  	while ($data = mysqli_fetch_assoc($result2)) {
- 	echo "Categorie : " . $data['Categorie'] . '<br>';
-	echo "Id: " . $data['Id'] . '<br>';
- 	echo "Prix: " . $data['Prix'] . '<br>';
-	echo "Stock: " . $data['Stock'] . '<br>';
-	echo "Email vendeur: " . $data['IdVendeur'] . '<br>';
- 	echo "Description: " . $data['Description'] . '<br>';
-	echo "<img src= ".$data['Photo']." alt='Image non trouvée' height='60' width ='60'/>". '<br>';
-	echo "<div id ='liste'><a href = 'vendeur.php?Id=".$data['Id']." '>
-		 <img src = 'suppression.png'height='50' width ='50'/> </a> </div><br>";
+ 	echo "<style type='text/css'>body {background-image: url('$fond');	
+ 			background-size: cover; 
+			background-position: center; 
+			position: relative;}
+			</style>";
+	//echo "<div class='overlay'></div>";
+	echo "<h5>".$data['Nom']." </h5>";
+	echo "<img src= ".$data['Photo']." alt='Image non trouvée' height='60' width ='60'/>";
+ 	echo "Description: " . $data['Description'] . " ";
+ 	echo "Prix: " . $data['Prix'] ." €";
+	echo " Stock: " . $data['Stock'] ."          ";
+	echo "<a href = 'vendeur.php?Id=".$data['Id']." '>
+		 <img src = 'suppression.png'height='50' width ='50'/> </a> <br><br><br>";
 	}
 	
 }

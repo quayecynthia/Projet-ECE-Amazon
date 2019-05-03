@@ -6,6 +6,7 @@ if(!isset($_SESSION['nom_connected'])) $_SESSION['nom_connected'] = "";
 if(!isset($_SESSION['prenom_connected'])) $_SESSION['prenom_connected'] = "";
 if(!isset($_SESSION['email_connected'])) $_SESSION['email_connected'] = "";
 if(!isset($_SESSION['image_connected'])) $_SESSION['image_connected'] = "";
+if(!isset($_SESSION['panier'])) $_SESSION['panier'] = "";
 if(!isset($_SESSION['admin'])) $_SESSION['admin'] = '0';
 ?>
 
@@ -72,26 +73,26 @@ else if($connexion) echo '<li class="nav-item"><a class="nav-link" href="Deconne
 		<h1>Nos Catégories</h1>
 	</div>
 
-	<div class="thumbnail" id="Case1">
-		<a href="vetement.png" target="_blank">
+	<div id="Case1">
+		<a href="Item.php?Categorie=Vetements">
 		<img src="vetement.png" style="width: 100%;">
 		</a>
 	</div>
 
-	<div class="thumbnail" id="Case2">
-		<a href="musique.png" target="_blank">
+	<div id="Case2">
+		<a href="Item.php?Categorie=Musique">
 		<img src="musique.png" style="width: 100%;">
 		</a>
 	</div>
 
-	<div class="thumbnail" id="Case3">
-		<a href="books.png" target="_blank">
+	<div id="Case3">
+		<a href="Item.php?Categorie=Livre">
 		<img src="books.png" style="width: 100%;">
 		</a>
 	</div>
 
-	<div class="thumbnail" id="Case4">
-		<a href="Sport.png" target="_blank">
+	<div id="Case4">
+		<a href="Item.php?Id=Sport et Loisir">
 		<img src="Sport.png" style="width: 100%;">
 		</a>
 	</div>
