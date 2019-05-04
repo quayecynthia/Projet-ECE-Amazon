@@ -1,0 +1,5 @@
+CREATE TABLE panier(
+	Id int(11) NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (Id),
+	Prix float(11) NOT NULL
+);
