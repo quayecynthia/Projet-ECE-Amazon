@@ -81,8 +81,17 @@ else{
 		$_SESSION['email_connected'] = $email;
 		$_SESSION['panier'] = $idpan;
 		$_SESSION['connected'] = 2;
-		header('Location: Accueil.php');
-		exit();
+
+		error_reporting(0);
+
+		if($_SESSION['ready']==-1){
+			header('Location: Paiement1.php');
+			exit();
+		}
+		else{
+			header('Location: Accueil.php');
+			exit();
+		}
 
 	}
 }

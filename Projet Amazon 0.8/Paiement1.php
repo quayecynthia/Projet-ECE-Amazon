@@ -1,6 +1,20 @@
 <?php
 session_start();
 include('header.php');
+
+if($_SESSION['connected']==2){
+    $_SESSION['ready'] = 1;
+}
+else{
+    $_SESSION['ready'] = -1;
+}
+
+if($_SESSION['connected']!=2){
+    header('Location: VotreCompte.php');
+    exit();
+}
+
+
 ?>
 
 <div id="signup">

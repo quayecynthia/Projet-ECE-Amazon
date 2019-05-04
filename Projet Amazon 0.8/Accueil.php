@@ -8,6 +8,7 @@ if(!isset($_SESSION['email_connected'])) $_SESSION['email_connected'] = "";
 if(!isset($_SESSION['image_connected'])) $_SESSION['image_connected'] = "";
 if(!isset($_SESSION['panier'])) $_SESSION['panier'] = "";
 if(!isset($_SESSION['admin'])) $_SESSION['admin'] = '0';
+if(!isset($_SESSION['ready'])) $_SESSION['ready'] = '0';
 
 include('header.php');
 ?>

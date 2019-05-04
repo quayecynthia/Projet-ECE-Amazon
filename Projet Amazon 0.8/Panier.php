@@ -4,7 +4,12 @@ include('header.php');
 
 $email = $_SESSION['email_connected'];
 $idpan = $_SESSION['panier'];
-echo $_SESSION['panier'];
+
+if($_SESSION['panier']=="")
+{
+	//FAIRE UN AFFICHAGE ET UN BOUTON RETOUR POUR QUAND IL VIENT LE PANIER VIDE
+	echo 'Votre panier est vide';
+}
  //paire (utilisateur => mot de passe) stockés dans le serveur
  //on utilise 3 paires juste pour montrer un exemple
 $database = "ECEAmazon";
@@ -16,10 +21,6 @@ $db_found = mysqli_select_db($db_handle, $database);
 //erreurs
 $error = 0;
 
-if($email==""){
-	$error = 1;
-	echo "L'email n'est pas rempli"."<br>";
-}
 if ($db_found) {
 
 if($error){
@@ -63,6 +64,7 @@ else{
  		}	
 	}
 	//finalisation de la commande
+
 	echo "<form action='Paiement1.php' method='post'>
 	<table>
 			<tr>

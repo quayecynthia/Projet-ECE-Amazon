@@ -67,12 +67,11 @@ if($ajoutitem){	//si on a cliqué sur ajout item et on regarde si le panier est 
 
 	if($_SESSION['panier'] == ""){//le panier n'est pas créé
 		$prixtotal = 0;
-			$prixtotal =$prixtotal + $prix*$quantite;
+		$prixtotal =$prixtotal + $prix*$quantite;
 		$sql3 = "INSERT INTO panier(Id, Prix) VALUES(NULL, '$prixtotal')";
 		$result3 = mysqli_query($db_handle, $sql3);
 		$idpan = mysqli_insert_id($db_handle);
 		$_SESSION['panier'] = $idpan;
-
 		}
 
 	else{//le panier est déjà créé on modifie son prix
