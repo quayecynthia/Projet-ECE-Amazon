@@ -37,12 +37,17 @@ else{
 
 <div class="collapse navbar-collapse" id="main-navigation">
 <ul class="navbar-nav">
+
 <?php
 
 if($connexion && $_SESSION['image_connected']=="") echo '<li class="nav-item"><a class="nav-link" href="MaPageAcheteur.php">Bienvenue, '.$_SESSION['prenom_connected'].' '.$_SESSION['nom_connected'].'</li>';
 else if($connexion && $_SESSION['image_connected']!="") echo '<li class="nav-item"><a class="nav-link" href="vendeur.php">Bienvenue, '.$_SESSION['prenom_connected'].' '.$_SESSION['nom_connected'].' <img src='. $_SESSION['image_connected']. ' alt="Image non trouvée" height="30" width ="30"/></a></li>';
 
 ?>
+<li><form class="form-inline my-2 my-lg-0" action="itemrecherche.php" method="POST">
+	<input class="form-control mr-sm-2" name="q" type="search" placeholder="Search" aria-label="Search">
+	<button class="btn btn-primary" type="submit">Search</button>
+	</form></li>
 <li class="nav-item"><a class="nav-link" href="ConnexionAdmin1.php">Admin</a></li>
 <li class="nav-item"><a class="nav-link" href="ConnexionVendeur.php">Vendre</a></li>
 <li class="nav-item"><a class="nav-link" href="Panier.php"><img src= "Panier.png" alt='Image non trouvée' height='30' width ='60'/></a></li>
