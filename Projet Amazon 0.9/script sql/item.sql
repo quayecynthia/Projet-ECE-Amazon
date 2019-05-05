@@ -7,10 +7,10 @@ Description varchar (255) NOT NULL,
 Prix int (11) NOT NULL,
 Stock int (11) NOT NULL,
 Categorie varchar (255) NOT NULL,
-Vendu int (11) NOT NULL,
+Vendu int (11) DEFAULT 0,
 IdVendeur varchar(255) NOT NULL,
 FOREIGN KEY(IdVendeur) REFERENCES vendeur(Email)
 );
 
 
-insert into item (Id, Nom, Photo, Description, Prix, Stock, Categorie, Vendu, IdVendeur)value(1, "Ballon", "ballon.png", "Cool", 15, 5, "Sport et Loisir", 0, "cynthia.quaye@edu.ece.fr");
+insert into item (Id, Nom, Photo, Description, Prix, Stock, Categorie, IdVendeur)value(1, "Ballon", "ballon.png", "Cool", 15, 5, "Sport et Loisir", "cynthia.quaye@edu.ece.fr");
