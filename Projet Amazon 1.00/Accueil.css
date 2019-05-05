@@ -1,0 +1,233 @@
+body {
+padding: 0px;
+margin: 0px;
+background: #f2f6e9;
+}
+
+button{
+	border: 0px;
+	background-color: transparent;
+}
+
+.overlay { position: absolute;
+			min-height: 100%;
+			min-width: 100%; left: 0px; top: 0px; 
+			background-color: rgba(0, 0, 0, 0.4); 
+		}
+
+#BestSeller #CateHeader h2{
+	border-style: solid;
+}
+.navbar {
+background:rgba(0,128,128);
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a:after {
+    border-color: transparent;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+
+.header 
+{background-image: url('back.png');
+background-size: cover; 
+background-position: center; 
+position: relative;
+}
+
+.description {
+left: 50%;
+position: absolute;
+top: 45%;
+transform: translate(-50%,-55%);
+text-align: center;
+}
+
+.description h1 {
+color: black;
+}
+
+.description p {
+color: black;
+font-size: 1.3rem;
+line-height: 1.5;
+}
+
+.nav-link, .navbar-brand {
+color: #fff;
+cursor: pointer;
+}
+
+.nav-link {
+margin-right: 1em !important;
+}
+
+.nav-link:hover {
+color: #000;
+}
+
+.navbar-collapse {
+justify-content: flex-end;
+}
+
+#Catégorie {
+width: 550px;
+height: 550px;
+border: 5px;
+border-style: groove;
+color: black;
+margin: 0 auto;
+}
+
+#BestSeller{
+width: 1300px;
+height: 400px;
+border: 5px;
+border-style: groove;
+color: black;
+margin: 0 auto;
+}
+
+
+
+#CateHeader{
+	height: 65px;
+	color:black;
+	text-align: center;
+	margin-top: 20px;
+}
+
+#Case1{
+	width: 250px;
+	float:left;
+	margin-left: 40px;
+}
+
+#Case2{
+	width: 250px;
+	float:right;
+}
+
+#Case3{
+	width: 250px;;
+	float:left;
+	margin-left: 40px;
+	margin-top: 30px;
+}
+
+#Case4{
+	width: 250px;
+	float:right;
+	margin-top: 30px;
+}
+
+#Seller1{
+	height: 300px;
+	width: 500px;
+	float:left;
+	text-align: center;
+}
+
+#Seller2{
+	float: right;
+	height: 300px;
+	width: 500px;
+	text-align: center;
+}
+
+#Seller3{
+	float: right;
+	height: 300px;
+	width: 500px;
+	text-align: center;
+}
+
+#Seller4{
+	float: right;
+	height: 300px;
+	width: 500px;
+	text-align: center;
+}
+
+ 
+#login .container #login-row #login-column #login-box {
+	margin-top: 20px;
+	margin-right: 100px;
+  	max-width: 600px;
+  	height: 400px;
+  	border: 1px solid #9C9C9C;
+  	background-color: #EAEAEA;
+}
+
+#signup .contain #signup-row #signup-column #signup-box {
+	margin-top: 20px;
+	margin-left: 80px;
+  	max-width: 600px;
+  	height: 600px;
+  	border: 1px solid #9C9C9C;
+  	background-color: #EAEAEA;
+}
+
+#signup .contain #signup-row #signup-column #signup-box #signup-form {
+ 	padding-left: 50px;
+ 	margin-top: 40px;
+}
+
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+
+
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+
+#login .container #login-row #login-column #login-box #login-form label {
+	color:#6ab446;
+}
+
+#login .container #login-row #login-column #login-box #login-form h3 {
+	color:#6ab446;
+}
+
+#login .container #login-row #login-column #login-box #login-form #bouton {
+	color:#6ab446;
+}
+
+#login .container #login-row #login-column #login-box #login-form #bouton:hover {
+	color:blue;
+}
+
+
